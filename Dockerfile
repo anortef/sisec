@@ -7,7 +7,7 @@ ENV SQLMAP_LEVEL 1
 
 RUN apt update && apt install -y python3 git
 
-RUN mkdir /sisec
+RUN mkdir /sisec /reports
 
 WORKDIR /sisec
 

@@ -4,6 +4,7 @@ ENV TARGET "localhost"
 ENV SQLMAP_CRAWL 3
 ENV SQLMAP_RISK 1
 ENV SQLMAP_LEVEL 1
+ENV SQLMAP_COOKIE ""
 
 RUN apt update && apt install -y python3 git
 

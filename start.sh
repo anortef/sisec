@@ -2,7 +2,7 @@
 set -x
 set -o pipefail
 
-python3 sqlmap-dev/sqlmap.py -u $TARGET \
+SQLMAP_COMMAND="python3 sqlmap-dev/sqlmap.py -u $TARGET \
 --batch \
 --forms \
 --risk=$SQLMAP_RISK \
@@ -10,4 +10,11 @@ python3 sqlmap-dev/sqlmap.py -u $TARGET \
 --random-agent \
 --all \
 --dbs \
---output-dir=/reports 
+--output-dir=/reports"
+
+if [ ! "$SQLMAP_COOKIE" = "" ]
+then
+  SQLMAP_COMMAND="${SQLMAP_COMMAND} --cookie $SQLMAP_COOKIE"
+fi
+
+$SQLMAP_COMMAND
